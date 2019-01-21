@@ -1,0 +1,24 @@
+html {
+	height: 100%;
+}
+body {
+	height: 100%;
+	margin: 0;
+	background-color: #F5F5F6;
+}
+
+#title {
+	margin: 0;
+	padding-left: 30px;
+	padding-top: 10px;
+	padding-bottom: 20px;
+	background-color: #1e88e5;
+	color: white;
+	font-family: 'Open Sans', sans-serif;
+}
+
+#bar {
+	background-color: #005cb2;
+	padding: 10px;
+}
+
