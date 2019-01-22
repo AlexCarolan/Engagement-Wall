@@ -49,7 +49,7 @@ class CurrentDate extends React.Component {
 	}
 
   	render() {
-		return(<h2>{`${this.pad(this.state.hours)}:${this.pad(this.state.minutes)}:${this.pad(this.state.seconds)} ${this.state.dayString} ${this.state.day} ${this.state.month} ${this.state.year}`}</h2>);	
+		return(<h2>{`${this.pad(this.state.hours)}:${this.pad(this.state.minutes)}:${this.pad(this.state.seconds)} \u00A0\u00A0 ${this.state.dayString} ${this.state.day} ${this.state.month} ${this.state.year}`}</h2>);	
   	}
 	
 }
