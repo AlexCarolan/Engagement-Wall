@@ -2,27 +2,55 @@
 
 class CurrentDate extends React.Component {
 
+	constructor(props) {
+		super(props);
+		this.dateGetter = new Date();
+		this.months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+		this.days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+		this.state = {
+			year : this.dateGetter.getFullYear(),
+			dayString : this.days[this.dateGetter.getDay()],
+			day : this.dateGetter.getDate(),
+			month : this.months[this.dateGetter.getMonth()],
+			seconds : this.dateGetter.getSeconds(),
+			minutes : this.dateGetter.getMinutes(),
+			hours : this.dateGetter.getHours()
+		};
+		
+	}
+
 	pad(d) {
-    return (d < 10) ? '0' + d.toString() : d.toString();
+    	return (d < 10) ? '0' + d.toString() : d.toString();
+	}
+
+	componentDidMount() {
+		this.timerID = setInterval(
+	  		() => this.tick(),
+	  		1000
+		);
+	}
+
+	componentWillUnmount() {
+		clearInterval(this.timerID);
+	}
+
+	tick() {
+		this.dateGetter = new Date();
+		this.setState({
+			year : this.dateGetter.getFullYear(),
+			dayString : this.days[this.dateGetter.getDay()],
+			day : this.dateGetter.getDate(),
+			month : this.months[this.dateGetter.getMonth()],
+			seconds : this.dateGetter.getSeconds(),
+			minutes : this.dateGetter.getMinutes(),
+			hours : this.dateGetter.getHours()
+		});
 	}
 
   	render() {
-		let date = new Date();
-		let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-		var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-		
-		let year = date.getFullYear();
-		let dayString = days[date.getDay()];
-		let day = date.getDate();
-		let month = months[date.getMonth()];
-		
-		let seconds = date.getSeconds();
-		let minutes = date.getMinutes();
-		let hours = date.getHours();
-		
-		return(<h2>{`${this.pad(hours)}:${this.pad(minutes)}:${this.pad(seconds)} ${dayString} ${day} ${month} ${year}`}</h2>);
-		
-  }
+		return(<h2>{`${this.pad(this.state.hours)}:${this.pad(this.state.minutes)}:${this.pad(this.state.seconds)} ${this.state.dayString} ${this.state.day} ${this.state.month} ${this.state.year}`}</h2>);	
+  	}
 	
 }
 
