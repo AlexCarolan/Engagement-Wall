@@ -32,6 +32,22 @@ h2{
 	padding-top: 5px;
 }
 
+/* Chart Layout */
+.chart{
+	width: 100%; 
+	min-height: 95%;
+}
+
+.chart div {
+	margin: 0px;
+	padding: 0px;
+}
+
+.chart div svg{
+	margin: 0px;
+	padding: 0px;
+}
+
 /* Grid Layout */
 .grid-container { height: 40%; margin-left: 10px;}
 
@@ -65,3 +81,7 @@ h2{
 .d { grid-area: d; }
 
 .e { grid-area: e; }
+
+
+
+
