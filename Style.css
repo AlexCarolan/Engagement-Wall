@@ -8,34 +8,10 @@ body {
 	font-family: 'Open Sans', sans-serif;
 }
 
-#title {
-	margin: 0;
-	padding-left: 30px;
-	padding-top: 10px;
-	padding-bottom: 20px;
-	background-color: #1e88e5;
-	color: white;
-}
-
-#bar {
-	background-color: #005cb2;
-	padding: 10px;
-}
-
-#date {
-	padding-left: 30px;
-}
-
-h2{
-	padding: 0px;
-	margin: 0px;
-	padding-top: 5px;
-}
-
 /* Chart Layout */
 .chart{
 	width: 100%; 
-	min-height: 95%;
+	min-height: 80%;
 }
 
 .chart div {
@@ -82,6 +58,39 @@ h2{
 
 .e { grid-area: e; }
 
+/* Misc */
+#title {
+	margin: 0;
+	padding-left: 30px;
+	padding-top: 10px;
+	padding-bottom: 20px;
+	background-color: #1e88e5;
+	color: white;
+}
+
+#bar {
+	background-color: #005cb2;
+	padding: 10px;
+}
+
+#date {
+	padding-left: 30px;
+}
+
+#goal_counter {
+	 border-radius: 0px;
+	 margin: 0px;
+}
+
+h2{
+	padding: 0px;
+	margin: 0px;
+	padding-top: 5px;
+}
+
+text{
+	text-align: center;
+}
 
 
 

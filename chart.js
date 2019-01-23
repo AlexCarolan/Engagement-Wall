@@ -4,17 +4,18 @@
       function drawChart() {
 
         var data = google.visualization.arrayToDataTable([
-          ['Task', 'Hours per Day'],
-          ['Work',     11],
-          ['Eat',      2],
-          ['Commute',  2],
-          ['Watch TV', 2],
-          ['Sleep',    7]
+          ['Status', 'Hours'],
+          ['Complete',     45],
+          ['Incomplete',     5],
         ]);
 
         var options = {
+          title: 'Community Goal - Total Hours',
           legend:'none',
-          chartArea: {width: '100%', height: '100%'}
+          pieHole: 0.4,
+          colors: ['#19B3A6', '#7d7d7d'],
+          chartArea: {width: '100%', height: '100%'},
+          titlePosition: 'none'
         };
 
 
