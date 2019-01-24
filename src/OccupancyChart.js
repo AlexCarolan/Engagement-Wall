@@ -3,19 +3,23 @@
 
       function drawOcc() {
         var data = google.visualization.arrayToDataTable([
-          ['Year', 'Sales', 'Expenses'],
-          ['2013',  1000,      400],
-          ['2014',  1170,      460],
-          ['2015',  660,       1120],
-          ['2016',  1030,      540]
+          ['Time of Day', 'Occupants'],
+          [1,  1],
+          [2,  20],
+          [3,  25],
+          [4,  15]
         ]);
 
         var options = {
-
-          hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
+          backgroundColor: '#e5e7ea',
+          legend: { position: 'bottom' },
+          series: {
+            0: { color: '#e2431e' }
+          },
+          hAxis: {title: 'Time of Day',  titleTextStyle: {color: '#000000'}, minValue: 0, maxValue: 24},
           vAxis: {minValue: 0}
         };
 
-        var chart = new google.visualization.AreaChart(document.getElementById('chart_occ'));
+        var chart = new google.visualization.LineChart(document.getElementById('chart_occ'));
         chart.draw(data, options);
       }

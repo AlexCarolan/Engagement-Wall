@@ -12,6 +12,11 @@ body {
 .chart{
 	width: 100%; 
 	min-height: 70%;
+	max-width: 96%;
+}
+
+#chart_occ {
+	min-height: 80%;
 }
 
 .chart div {
@@ -32,13 +37,6 @@ body {
  position: relative;
  margin: 10px;
  background-color: #c1c5c9;
- width: auto;
-}
-
-.grid-container *:after { 
- position: absolute;
- top: 0;
- left: 0;
 }
 
 .grid-container {
