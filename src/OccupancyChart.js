@@ -11,11 +11,11 @@
         ]);
 
         var options = {
-          
+
           hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
           vAxis: {minValue: 0}
         };
 
-        var chart = new google.visualization.AreaChart(document.getElementById('occ_chart'));
+        var chart = new google.visualization.AreaChart(document.getElementById('chart_occ'));
         chart.draw(data, options);
       }
