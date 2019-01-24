@@ -72,12 +72,9 @@ var TotalHours = function (_React$Component) {
   }, {
     key: 'tick',
     value: function tick() {
-      //Create a random chance to increases by a semi-random value
       if (Math.floor(Math.random() * 10) > 5) {
         progress = progress + Math.floor(Math.random() * 4);
       }
-
-      drawChart();
 
       this.setState({
         hours: progress
