@@ -20,7 +20,24 @@
 
       //Returns a realistic occupancy value based in the input time
       function generateOcc(time) {
-        return 1;
+        if (time <= 4 ){
+          return 0;
+        } else if (time <= 6) {
+          return Math.floor(Math.random() * (3 - 0)) + 0;
+        } else if (time <= 9) {
+          return Math.floor(Math.random() * (40 - 10)) + 10;
+        } else if (time <= 12) {
+          return Math.floor(Math.random() * (75 - 40 + 1)) + 40;
+        } else if (time <= 16) {
+          return Math.floor(Math.random() * (45 - 35 + 1)) + 35;
+        } else if (time <= 20) {
+          return Math.floor(Math.random() * (80 - 45 + 1)) + 45;
+        } else if (time <= 22) {
+          return Math.floor(Math.random() * (27 - 15 + 1)) + 15;
+        }
+
+        else return 0;
+
       }
 
       function drawOcc() {
