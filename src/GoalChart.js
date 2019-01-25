@@ -64,6 +64,8 @@
             this.setState({
               hours: progress
             });
+
+            drawChart();
           }
 
           render() {

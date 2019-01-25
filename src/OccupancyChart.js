@@ -1,27 +1,30 @@
+      //Get the inital values
+      let values = getInitalValues()
+
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawOcc);
 
+      //Generate data up to the current time on inital page load
       function getInitalValues()
       {
           let currentDate = new Date()
-          let currentHour = currentDate.getHour();
+          let currentHour = currentDate.getHours();
+          let occTime = [['Time of Day', 'Occupants']];
+
+          for(i = 0; i <= currentHour; i++) {
+            occTime.push([[i,0,0], generateOcc(i)]);
+          }
+
+          return occTime;
+      }
+
+      //Returns a realistic occupancy value based in the input time
+      function generateOcc(time) {
+        return 1;
       }
 
       function drawOcc() {
-        var data = google.visualization.arrayToDataTable([
-          ['Time of Day', 'Occupants'],
-          [[8, 30, 45], 5],
-          [[9, 0, 0], 10],
-          [[10, 0, 0, 0], 12],
-          [[10, 45, 0, 0], 13],
-          [[11, 0, 0, 0], 15],
-          [[12, 15, 45, 0], 20],
-          [[13, 0, 0, 0], 22],
-          [[14, 30, 0, 0], 25],
-          [[15, 12, 0, 0], 30],
-          [[16, 45, 0], 32],
-          [[16, 59, 0], 42]
-        ]);
+        var data = google.visualization.arrayToDataTable(values);
 
         var options = {
           backgroundColor: '#e5e7ea',
