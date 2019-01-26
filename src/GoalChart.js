@@ -66,7 +66,7 @@
               hours: progress
             });
 
-            drawChart();
+            google.charts.setOnLoadCallback(drawChart);
           }
 
           render() {
