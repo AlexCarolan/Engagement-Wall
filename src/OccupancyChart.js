@@ -1,8 +1,38 @@
       //Get the inital values
-      let values = getInitalValues()
+      let values = getInitalValues();
 
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawOcc);
+
+      updater();
+
+      //Begin the update loop
+      function updater() {
+        updateOcc(3);
+        setTimeout(updater, 3000);
+      }
+
+      //Updates the chart every hour
+      function updateOcc(prevHour) {
+
+        let currentDate = new Date()
+
+        //Check that a new hour has begun
+        if (prevHour != currentDate.getHours()) {
+
+          prevHour = currentDate.getHours();
+
+          //Check to see if a new day has begun and reset the data values
+          if (prevHour === 0) {
+            values = getInitalValues();
+          } else {
+            values.push([[prevHour,0,0], generateOcc(prevHour)]);
+          }
+        } 
+
+        //update chart and check again in a minute 
+        google.charts.setOnLoadCallback(drawOcc);
+      }
 
       //Generate data up to the current time on inital page load
       function getInitalValues()
@@ -40,6 +70,7 @@
 
       }
 
+      //Draws the occupancy chart on the screen
       function drawOcc() {
         var data = google.visualization.arrayToDataTable(values);
 
@@ -63,4 +94,11 @@
 
         var chart = new google.visualization.LineChart(document.getElementById('chart_occ'));
         chart.draw(data, options);
+
+                  // listen for error
+          google.visualization.events.addListener(chart, 'error', function (err) {
+            // check error
+            console.log(err.id, err.message);
+          });
+
       }

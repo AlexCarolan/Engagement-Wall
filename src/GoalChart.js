@@ -9,6 +9,7 @@
       let date = new Date();
       let progress = (date.getDate() * (500) + Math.floor(Math.random() * 5000));
 
+
       function drawChart() {
 
         //Check that the remaining hours are above zero
