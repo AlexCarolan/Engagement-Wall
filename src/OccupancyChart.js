@@ -1,5 +1,6 @@
       //Get the inital values
       let values = getInitalValues();
+      let prevHour = new Date().getHours();
 
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawOcc);
@@ -8,12 +9,12 @@
 
       //Begin the update loop
       function updater() {
-        updateOcc(3);
+        updateOcc();
         setTimeout(updater, 3000);
       }
 
       //Updates the chart every hour
-      function updateOcc(prevHour) {
+      function updateOcc() {
 
         let currentDate = new Date()
 
@@ -28,10 +29,9 @@
           } else {
             values.push([[prevHour,0,0], generateOcc(prevHour)]);
           }
+          //Update chart
+          google.charts.setOnLoadCallback(drawOcc);
         } 
-
-        //update chart and check again in a minute 
-        google.charts.setOnLoadCallback(drawOcc);
       }
 
       //Generate data up to the current time on inital page load
