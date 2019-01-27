@@ -7,7 +7,7 @@ class CycleLeaderBoard extends React.Component {
 		const listItems = numbers.map((number) =>
 		    <tr>
 			    <td>{number})</td>
-			    <td>Lastname</td> 
+			    <td>name</td> 
 			    <td>dist</td>
 			 </tr>
 		);
@@ -35,7 +35,7 @@ class RunningLeaderBoard extends React.Component {
 		const listItems = numbers.map((number) =>
 		    <tr>
 			    <td>{number})</td>
-			    <td>Lastname</td> 
+			    <td>name</td> 
 			    <td>dist</td>
 			 </tr>
 		);

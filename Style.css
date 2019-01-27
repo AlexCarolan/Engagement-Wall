@@ -93,7 +93,7 @@ h3{
 }
 
 #lead_board_run, #lead_board_cycle {
-	font-size: 70%;
+	font-size: 75%;
 	display: inline-block;
 	padding: 0px;
 	margin: 0px;
@@ -102,6 +102,7 @@ h3{
 #lead_board_run, table {
 	padding: 0px;
 	margin: 0px;
+	text-align: center;
 }
 
 .leaderboard {
