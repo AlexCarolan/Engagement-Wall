@@ -43,7 +43,7 @@ body {
   display: grid;
   grid-template-columns: 33% 33% 33%;
   grid-template-rows: 100% 100%;
-  grid-template-areas: "A C d" "B C e";
+  grid-template-areas: "A B C" "d e f";
 }
 
 .A { grid-area: A; }
@@ -55,6 +55,8 @@ body {
 .d { grid-area: d; }
 
 .e { grid-area: e; }
+
+.f { grid-area: f; }
 
 /* Misc */
 #title {
