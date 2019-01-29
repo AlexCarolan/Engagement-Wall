@@ -103,13 +103,50 @@ h3{
 	padding: 0px;
 	margin: 0px;
 	text-align: center;
+	padding-left: 5px;
 }
 
 .leaderboard {
 	padding: 0px;
 	margin: 0px;
-	padding-left: 20px;
+	padding-left: 15px;
 }
 
+#lb_title {
+	margin-bottom: 0px;
+}
+
+#sub_head_A, #sub_head_B {
+	display: inline-block;
+	padding-left: 90px;
+	padding-bottom: 2px;
+	margin: 0px;
+}
+
+#sub_head_B {
+	padding-left: 150px;
+}
+
+.sub_box{
+	padding: 0px;
+	margin: 0px;
+}
+
+td, th {
+	padding-left: 5px;
+	padding-right: 5px;
+	outline: 2px solid black;
+}
+
+.B td {
+	background-color: #eff0f2;
+	border-radius: 0px;
+}
+
+.B th {
+	background-color: #55595e;
+	border-radius: 0px;
+	color: white;
+}
 
 
