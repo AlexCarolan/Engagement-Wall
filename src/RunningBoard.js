@@ -21,10 +21,10 @@ class CycleLeaderBoard extends React.Component {
 		for (i=0; i<10; i++)
 		{
 		    listItems.push(
-			    <tr>
-				    <td>{`${i+1}`}</td>
-				    <td>{`${scores[i][0]}`}</td> 
-				    <td>{`${scores[i][1]} Km`}</td>
+			    <tr key={i}>
+				    <td key="{'num'+i}">{`${i+1}`}</td>
+				    <td key="{'name'+i}">{`${scores[i][0]}`}</td> 
+				    <td key="{'dist'+i}">{`${scores[i][1]} Km`}</td>
 				 </tr> 
 			 );
 		}
@@ -66,10 +66,10 @@ class RunningLeaderBoard extends React.Component {
 		for (i=0; i<10; i++)
 		{
 		    listItems.push(
-			    <tr>
-				    <td>{`${i+1}`}</td>
-				    <td>{`${scores[i][0]}`}</td> 
-				    <td>{`${scores[i][1]} Km`}</td>
+			    <tr key={i}>
+				    <td key="{'num'+i}">{`${i+1}`}</td>
+				    <td key="{'name'+i}">{`${scores[i][0]}`}</td> 
+				    <td key="{'dist'+i}">{`${scores[i][1]} Km`}</td>
 				 </tr> 
 			 );
 		}
