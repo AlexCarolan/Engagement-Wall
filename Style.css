@@ -149,4 +149,12 @@ td, th {
 	color: white;
 }
 
+#route_title {
+	margin-bottom: 0px;
+}
+
+#map {
+	margin-left: 12px;
+}
+
 
