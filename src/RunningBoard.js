@@ -3,14 +3,31 @@
 class CycleLeaderBoard extends React.Component {
   	render() {
 
-		const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-		const listItems = numbers.map((number) =>
-		    <tr>
-			    <td>{number})</td>
-			    <td>name</td> 
-			    <td>dist</td>
-			 </tr>
-		);
+  		const scores = [
+  			['A',123],
+  			['B',123],
+  			['C',123],
+  			['D',123],
+  			['E',123],
+  			['A',123],
+  			['B',123],
+  			['C',123],
+  			['D',123],
+  			['E',123]
+  		]
+
+		let listItems = [];
+
+		for (i=0; i<10; i++)
+		{
+		    listItems.push(
+			    <tr>
+				    <td>{`${i+1}`}</td>
+				    <td>{`${scores[i][0]}`}</td> 
+				    <td>{`${scores[i][1]} Km`}</td>
+				 </tr> 
+			 );
+		}
 
 		return(
 				<table className="leaderboard">
@@ -31,14 +48,31 @@ class CycleLeaderBoard extends React.Component {
 class RunningLeaderBoard extends React.Component {
   	render() {
 
-		const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-		const listItems = numbers.map((number) =>
-		    <tr>
-			    <td>{number})</td>
-			    <td>name</td> 
-			    <td>dist</td>
-			 </tr>
-		);
+  		const scores = [
+  			['A',123],
+  			['B',123],
+  			['C',123],
+  			['D',123],
+  			['E',123],
+  			['A',123],
+  			['B',123],
+  			['C',123],
+  			['D',123],
+  			['E',123]
+  		]
+
+		let listItems = [];
+
+		for (i=0; i<10; i++)
+		{
+		    listItems.push(
+			    <tr>
+				    <td>{`${i+1}`}</td>
+				    <td>{`${scores[i][0]}`}</td> 
+				    <td>{`${scores[i][1]} Km`}</td>
+				 </tr> 
+			 );
+		}
 
 		return(
 				<table className="leaderboard">
