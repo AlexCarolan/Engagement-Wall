@@ -4,16 +4,16 @@ class CycleLeaderBoard extends React.Component {
   	render() {
 
   		const scores = [
-  			['A',123],
-  			['B',123],
-  			['C',123],
-  			['D',123],
-  			['E',123],
-  			['A',123],
-  			['B',123],
-  			['C',123],
-  			['D',123],
-  			['E',123]
+   			['M Sharp',134],
+  			['A Rosa',127],
+  			['B Sanderson',118],
+  			['J Solomon',101],
+  			['H Greene',94],
+  			['G Harvey',85],
+  			['M Croft',83],
+  			['P Thompson',79],
+  			['D Hutton',77],
+  			['M Washington',72]
   		]
 
 		let listItems = [];
@@ -35,7 +35,7 @@ class CycleLeaderBoard extends React.Component {
 						<tr>
 						    <th>Position</th>
 						    <th>Name</th> 
-						    <th>Total Distance</th>
+						    <th>Total</th>
 						 </tr>
 							{listItems}
 					</tbody>
@@ -49,16 +49,16 @@ class RunningLeaderBoard extends React.Component {
   	render() {
 
   		const scores = [
-  			['A',123],
-  			['B',123],
-  			['C',123],
-  			['D',123],
-  			['E',123],
-  			['A',123],
-  			['B',123],
-  			['C',123],
-  			['D',123],
-  			['E',123]
+  			['C Huffman',61],
+  			['K Tate',54],
+  			['R Davies',53],
+  			['E Parry',49],
+  			['D Phillips',45],
+  			['M Clements',43],
+  			['T Hebert',43],
+  			['L Church',40],
+  			['D Rodgers',38],
+  			['L Boyle',33]
   		]
 
 		let listItems = [];
@@ -80,7 +80,7 @@ class RunningLeaderBoard extends React.Component {
 						<tr>
 						    <th>Position</th>
 						    <th>Name</th> 
-						    <th>Total Distance</th>
+						    <th>Total</th>
 						 </tr>
 							{listItems}
 					</tbody>
