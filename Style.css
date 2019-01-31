@@ -157,8 +157,18 @@ td, th {
 	margin-bottom: 0px;
 }
 
+#route_map {
+	margin: 0px;
+	padding: 0px;
+	height: 80%;
+}
+
 #map {
 	margin-left: 12px;
 }
+
+
+
+
 
 
