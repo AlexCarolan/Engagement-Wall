@@ -161,6 +161,7 @@ td, th {
 	margin: 0px;
 	padding: 0px;
 	height: 80%;
+	z-index: 1;
 }
 
 #map {
