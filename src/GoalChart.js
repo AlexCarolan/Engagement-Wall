@@ -40,12 +40,12 @@
      function drawRowingChart() {
 
         //Check that the remaining hours are above zero
-        let remainder = (goalLimit-progress);
+        let remainder = (goalLimit-(progress+2500));
         if(remainder <= 0){remainder = 0}
 
         var data = google.visualization.arrayToDataTable([
           ['Status', 'Distance'],
-          ['Complete',     progress],
+          ['Complete',     (progress+2500)],
           ['Incomplete',     remainder],
         ]);
 
@@ -62,19 +62,11 @@
         var chart = new google.visualization.PieChart(document.getElementById('chart_goal'));
         chart.draw(data, options);
       }
-
+      
       class TotalHours extends React.Component {
 
-          constructor(props) {
-            super(props);
-            
-            this.state = {
-              hours: progress
-            }
-          }
-
           render() {
-            return(<h3>{`Current Progress: ${this.state.hours} Hours`}</h3>);
+            return(<h3>{`Current Progress: ${progress} Hours`}</h3>);
           }
         }
 
@@ -94,9 +86,6 @@
 
           this.tracker = 1;
           
-          this.state = {
-            hours: progress
-          }
         }
 
         componentDidMount() {
@@ -115,11 +104,16 @@
             progress = progress + Math.floor(Math.random() * 4);
           }
 
-          this.setState({
-            hours: progress
-          });
+          this.tracker = this.tracker + 1;
 
-          google.charts.setOnLoadCallback(drawRowingChart);
+          if (this.tracker >= 3){this.tracker = 1}
+
+          if (this.tracker === 1){
+            google.charts.setOnLoadCallback(drawChart);
+          } else if (this.tracker === 2) {
+            google.charts.setOnLoadCallback(drawRowingChart);
+          }
+    
         }
 
         render() {
