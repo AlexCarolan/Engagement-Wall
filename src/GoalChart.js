@@ -9,7 +9,7 @@
       let date = new Date();
       let progress = (date.getDate() * (500) + Math.floor(Math.random() * 5000));
 
-
+      //Draws the 
       function drawChart() {
 
         //Check that the remaining hours are above zero
@@ -25,7 +25,34 @@
         var options = {
           legend:'none',
           pieHole: 0.4,
-          colors: ['#19B3A6', '#7d7d7d'],
+          colors: ['#D33B42', '#7d7d7d'],
+          chartArea: {width: '100%', height: '100%'},
+          backgroundColor: '#c1c5c9',
+          titlePosition: 'none'
+        };
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.PieChart(document.getElementById('chart_goal'));
+        chart.draw(data, options);
+      }
+
+     //Draws the rowing goal chart
+     function drawRowingChart() {
+
+        //Check that the remaining hours are above zero
+        let remainder = (goalLimit-progress);
+        if(remainder <= 0){remainder = 0}
+
+        var data = google.visualization.arrayToDataTable([
+          ['Status', 'Distance'],
+          ['Complete',     progress],
+          ['Incomplete',     remainder],
+        ]);
+
+        var options = {
+          legend:'none',
+          pieHole: 0.4,
+          colors: ['#266DD3', '#7d7d7d'],
           chartArea: {width: '100%', height: '100%'},
           backgroundColor: '#c1c5c9',
           titlePosition: 'none'
@@ -46,29 +73,6 @@
             }
           }
 
-          componentDidMount() {
-            this.timerID = setInterval(
-                () => this.tick(),
-                2000
-            );
-          }
-
-          componentWillUnmount() {
-            clearInterval(this.timerID);
-          }
-
-          tick() {
-            if (Math.floor(Math.random() * 10) > 5) {
-              progress = progress + Math.floor(Math.random() * 4);
-            }
-
-            this.setState({
-              hours: progress
-            });
-
-            google.charts.setOnLoadCallback(drawChart);
-          }
-
           render() {
             return(<h3>{`Current Progress: ${this.state.hours} Hours`}</h3>);
           }
@@ -84,6 +88,39 @@
 
 
       class ChartHolder extends React.Component {
+
+        constructor(props) {
+          super(props);
+
+          this.tracker = 1;
+          
+          this.state = {
+            hours: progress
+          }
+        }
+
+        componentDidMount() {
+          this.timerID = setInterval(
+              () => this.tick(),
+              5000
+          );
+        }
+
+        componentWillUnmount() {
+          clearInterval(this.timerID);
+        }
+
+        tick() {
+          if (Math.floor(Math.random() * 10) > 5) {
+            progress = progress + Math.floor(Math.random() * 4);
+          }
+
+          this.setState({
+            hours: progress
+          });
+
+          google.charts.setOnLoadCallback(drawRowingChart);
+        }
 
         render() {
           return(
