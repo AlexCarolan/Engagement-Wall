@@ -83,5 +83,21 @@
       }
 
 
-ReactDOM.render(<GoalTitle />, document.querySelector('#goal_title'));
-ReactDOM.render(<TotalHours />, document.querySelector('#total_hours'));
+      class ChartHolder extends React.Component {
+
+        render() {
+          return(
+            <div>
+              <GoalTitle />
+              <div id="chart_goal" className="chart"></div>
+              <TotalHours />
+            </div>
+          );
+        }
+      }
+
+
+
+
+
+ReactDOM.render(<ChartHolder />, document.querySelector('#chart_cont'));
