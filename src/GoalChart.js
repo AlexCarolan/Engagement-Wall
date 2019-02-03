@@ -64,11 +64,36 @@
       }
       
       class TotalHours extends React.Component {
+        
+          constructor(props) {
+              super(props);
+
+              this.state = {
+                hours : progress
+              };
+          }
+
+          componentDidMount() {
+            this.timerID = setInterval(
+                () => this.updateValues(),
+                1000
+            );
+          }
+
+          componentWillUnmount() {
+            clearInterval(this.timerID);
+          }
+
+          updateValues() {
+              this.setState({
+                hours : progress
+              });
+          }
 
           render() {
-            return(<h3>{`Current Progress: ${progress} Hours`}</h3>);
+            return(<h3>{`Current Progress: ${this.state.hours} Hours`}</h3>);
           }
-        }
+      }
 
       class GoalTitle extends React.Component {
 
@@ -85,6 +110,7 @@
           super(props);
 
           this.tracker = 1;
+          this.th = <TotalHours />
           
         }
 
@@ -121,7 +147,7 @@
             <div>
               <GoalTitle />
               <div id="chart_goal" className="chart"></div>
-              <TotalHours />
+              {this.th}
             </div>
           );
         }
