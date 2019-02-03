@@ -6,6 +6,7 @@
       // Current total generated using day of month 
       // This data is generated due to unavailability of accessable api
       const goalLimit = 20000;
+      const rowingLimit = 50000
       let date = new Date();
       let progress = (date.getDate() * (500) + Math.floor(Math.random() * 5000));
 
@@ -40,7 +41,7 @@
      function drawRowingChart() {
 
         //Check that the remaining hours are above zero
-        let remainder = (goalLimit-(progress+2500));
+        let remainder = (rowingLimit-(progress+2500));
         if(remainder <= 0){remainder = 0}
 
         var data = google.visualization.arrayToDataTable([
@@ -95,10 +96,50 @@
           }
       }
 
+      class TotalRowed extends React.Component {
+        
+          constructor(props) {
+              super(props);
+
+              this.state = {
+                dist : (progress + 2500)
+              };
+          }
+
+          componentDidMount() {
+            this.timerID = setInterval(
+                () => this.updateValues(),
+                1000
+            );
+          }
+
+          componentWillUnmount() {
+            clearInterval(this.timerID);
+          }
+
+          updateValues() {
+              this.setState({
+                hours : (progress + 2500)
+              });
+          }
+
+          render() {
+            return(<h3>{`Current Progress: ${this.state.dist} Miles`}</h3>);
+          }
+      }
+
       class GoalTitle extends React.Component {
 
         render() {
           return(<h3>{`Community Goals - ${goalLimit} Gym Hours`}</h3>);
+        }
+
+      }
+
+      class RowingTitle extends React.Component {
+
+        render() {
+          return(<h3>{`Community Goals - ${rowingLimit} Miles Rowed`}</h3>);
         }
 
       }
@@ -110,7 +151,13 @@
           super(props);
 
           this.tracker = 1;
-          this.th = <TotalHours />
+          this.titles = [<GoalTitle />, <RowingTitle />];
+          this.counters = [<TotalHours />, <TotalRowed />];
+
+          this.state = {
+            title : this.titles[0],
+            counter : this.counters[0]
+          };
           
         }
 
@@ -125,6 +172,7 @@
           clearInterval(this.timerID);
         }
 
+        //Swap goal at each interval
         tick() {
           if (Math.floor(Math.random() * 10) > 5) {
             progress = progress + Math.floor(Math.random() * 4);
@@ -135,8 +183,16 @@
           if (this.tracker >= 3){this.tracker = 1}
 
           if (this.tracker === 1){
+            this.setState({
+              title : this.titles[0],
+              counter : this.counters[0]
+            })
             google.charts.setOnLoadCallback(drawChart);
           } else if (this.tracker === 2) {
+            this.setState({
+              title : this.titles[1],
+              counter : this.counters[1]
+            })
             google.charts.setOnLoadCallback(drawRowingChart);
           }
     
@@ -145,9 +201,9 @@
         render() {
           return(
             <div>
-              <GoalTitle />
+              {this.state.title}
               <div id="chart_goal" className="chart"></div>
-              {this.th}
+              {this.state.counter}
             </div>
           );
         }
