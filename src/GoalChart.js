@@ -1,10 +1,11 @@
+
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
 
-      /* Generate Inital Hours */
-      // Monthly goal 20,000
+      /* Generate Inital Progress */
+      // Monthly goal 20,000 base
       // Current total generated using day of month 
-      // This data is generated due to unavailability of accessable api
+      // This data is generated due to unavailability of an accessable api
       const goalLimit = 20000;
       const rowingLimit = 50000
       let date = new Date();
@@ -27,7 +28,7 @@
           legend:'none',
           pieHole: 0.4,
           colors: ['#D33B42', '#7d7d7d'],
-          chartArea: {width: '100%', height: '100%'},
+          chartArea: {width: '100%', height: '93%'},
           backgroundColor: '#c1c5c9',
           titlePosition: 'none'
         };
@@ -54,7 +55,7 @@
           legend:'none',
           pieHole: 0.4,
           colors: ['#266DD3', '#7d7d7d'],
-          chartArea: {width: '100%', height: '100%'},
+          chartArea: {width: '100%', height: '93%'},
           backgroundColor: '#c1c5c9',
           titlePosition: 'none'
         };
@@ -92,7 +93,7 @@
           }
 
           render() {
-            return(<h3>{`Current Progress: ${this.state.hours} Hours`}</h3>);
+            return(<h3 className="total_tracker">{`Current Progress: ${this.state.hours} Hours`}</h3>);
           }
       }
 
@@ -124,7 +125,7 @@
           }
 
           render() {
-            return(<h3>{`Current Progress: ${this.state.dist} Miles`}</h3>);
+            return(<h3 className="total_tracker">{`Current Progress: ${this.state.dist} Miles`}</h3>);
           }
       }
 
@@ -200,9 +201,11 @@
 
         render() {
           return(
-            <div>
+            <div id="inner_cont">
               {this.state.title}
+              <button type="button">&#60;--</button>
               <div id="chart_goal" className="chart"></div>
+              <button type="button">--&#62;</button>
               {this.state.counter}
             </div>
           );

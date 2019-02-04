@@ -11,7 +11,7 @@ body {
 /* Chart Layout */
 .chart{
 	width: 100%; 
-	min-height: 70%;
+	min-height: 120%;
 	max-width: 96%;
 }
 
@@ -166,6 +166,21 @@ td, th {
 
 .map {
 	margin-left: 12px;
+}
+
+#chart_cont {
+	height: 95%;
+}
+
+.total_tracker {
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+}
+
+button {
+	background-color: #007bff !important;
+	color: white;
+	border-color: #007bff;
 }
 
 
