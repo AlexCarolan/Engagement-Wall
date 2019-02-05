@@ -132,7 +132,7 @@
       class GoalTitle extends React.Component {
 
         render() {
-          return(<h3>{`Community Goals - ${goalLimit} Gym Hours`}</h3>);
+          return(<h3 className="headder">{`Community Goals - ${goalLimit} Gym Hours`}</h3>);
         }
 
       }
@@ -140,7 +140,7 @@
       class RowingTitle extends React.Component {
 
         render() {
-          return(<h3>{`Community Goals - ${rowingLimit} Miles Rowed`}</h3>);
+          return(<h3 className="headder">{`Community Goals - ${rowingLimit} Miles Rowed`}</h3>);
         }
 
       }
@@ -203,10 +203,9 @@
           return(
             <div id="inner_cont">
               {this.state.title}
-              <button type="button">&#60;--</button>
               <div id="chart_goal" className="chart"></div>
-              <button type="button">--&#62;</button>
               {this.state.counter}
+              <button type="button">Next</button>
             </div>
           );
         }
