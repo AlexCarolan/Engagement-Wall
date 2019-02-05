@@ -198,7 +198,11 @@
             google.charts.setOnLoadCallback(drawRowingChart);
           }
 
-          console.log(this.tracker);
+          clearInterval(this.timerID);
+              this.timerID = setInterval(
+              () => this.tick(),
+              10000
+          );
     
         }
 
