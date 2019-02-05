@@ -11,7 +11,7 @@
       let date = new Date();
       let progress = (date.getDate() * (500) + Math.floor(Math.random() * 5000));
 
-      //Draws the 
+      //Draws the gym hours goal chart
       function drawChart() {
 
         //Check that the remaining hours are above zero
@@ -55,6 +55,33 @@
           legend:'none',
           pieHole: 0.4,
           colors: ['#266DD3', '#7d7d7d'],
+          chartArea: {width: '100%', height: '93%'},
+          backgroundColor: '#c1c5c9',
+          titlePosition: 'none'
+        };
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.PieChart(document.getElementById('chart_goal'));
+        chart.draw(data, options);
+      }
+
+     //Draws the running goal chart
+     function drawRunningChart() {
+
+        //Check that the remaining hours are above zero
+        let remainder = (rowingLimit-(progress+7000));
+        if(remainder <= 0){remainder = 0}
+
+        var data = google.visualization.arrayToDataTable([
+          ['Status', 'Distance'],
+          ['Complete',     (progress+7000)],
+          ['Incomplete',     remainder],
+        ]);
+
+        var options = {
+          legend:'none',
+          pieHole: 0.4,
+          colors: ['#28ba3e', '#7d7d7d'],
           chartArea: {width: '100%', height: '93%'},
           backgroundColor: '#c1c5c9',
           titlePosition: 'none'
@@ -182,7 +209,7 @@
 
           this.tracker = this.tracker + 1;
 
-          if (this.tracker >= 3){this.tracker = 1}
+          if (this.tracker >= 4){this.tracker = 1}
 
           if (this.tracker === 1){
             this.setState({
@@ -196,6 +223,9 @@
               counter : this.counters[1]
             })
             google.charts.setOnLoadCallback(drawRowingChart);
+          } else if (this.tracker === 3) {
+
+            google.charts.setOnLoadCallback(drawRunningChart);
           }
 
           clearInterval(this.timerID);
