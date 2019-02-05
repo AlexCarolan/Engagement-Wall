@@ -151,6 +151,7 @@
         constructor(props) {
           super(props);
 
+          this.tick = this.tick.bind(this);
           this.tracker = 1;
           this.titles = [<GoalTitle />, <RowingTitle />];
           this.counters = [<TotalHours />, <TotalRowed />];
@@ -165,7 +166,7 @@
         componentDidMount() {
           this.timerID = setInterval(
               () => this.tick(),
-              5000
+              10000
           );
         }
 
@@ -196,6 +197,8 @@
             })
             google.charts.setOnLoadCallback(drawRowingChart);
           }
+
+          console.log(this.tracker);
     
         }
 
@@ -205,7 +208,7 @@
               {this.state.title}
               <div id="chart_goal" className="chart"></div>
               {this.state.counter}
-              <button type="button">Next</button>
+              <button type="button" onClick={this.tick}>Next</button>
             </div>
           );
         }
