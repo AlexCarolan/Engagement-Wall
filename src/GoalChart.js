@@ -7,7 +7,8 @@
       // Current total generated using day of month 
       // This data is generated due to unavailability of an accessable api
       const goalLimit = 20000;
-      const rowingLimit = 50000
+      const rowingLimit = 50000;
+      const runningLimit = 75000;
       let date = new Date();
       let progress = (date.getDate() * (500) + Math.floor(Math.random() * 5000));
 
@@ -69,19 +70,19 @@
      function drawRunningChart() {
 
         //Check that the remaining hours are above zero
-        let remainder = (rowingLimit-(progress+7000));
+        let remainder = (runningLimit-(progress+15000));
         if(remainder <= 0){remainder = 0}
 
         var data = google.visualization.arrayToDataTable([
           ['Status', 'Distance'],
-          ['Complete',     (progress+7000)],
+          ['Complete',     (progress+15000)],
           ['Incomplete',     remainder],
         ]);
 
         var options = {
           legend:'none',
           pieHole: 0.4,
-          colors: ['#28ba3e', '#7d7d7d'],
+          colors: ['#00B40C', '#7d7d7d'],
           chartArea: {width: '100%', height: '93%'},
           backgroundColor: '#c1c5c9',
           titlePosition: 'none'
@@ -156,6 +157,38 @@
           }
       }
 
+      class TotalRan extends React.Component {
+        
+          constructor(props) {
+              super(props);
+
+              this.state = {
+                dist : (progress + 15000)
+              };
+          }
+
+          componentDidMount() {
+            this.timerID = setInterval(
+                () => this.updateValues(),
+                1000
+            );
+          }
+
+          componentWillUnmount() {
+            clearInterval(this.timerID);
+          }
+
+          updateValues() {
+              this.setState({
+                hours : (progress + 15000)
+              });
+          }
+
+          render() {
+            return(<h3 className="total_tracker">{`Current Progress: ${this.state.dist} Miles`}</h3>);
+          }
+      }
+
       class GoalTitle extends React.Component {
 
         render() {
@@ -172,6 +205,14 @@
 
       }
 
+      class RunningTitle extends React.Component {
+
+        render() {
+          return(<h3 className="headder">{`Community Goals - ${runningLimit} Treadmill Miles`}</h3>);
+        }
+
+      }
+
 
       class ChartHolder extends React.Component {
 
@@ -180,8 +221,8 @@
 
           this.tick = this.tick.bind(this);
           this.tracker = 1;
-          this.titles = [<GoalTitle />, <RowingTitle />];
-          this.counters = [<TotalHours />, <TotalRowed />];
+          this.titles = [<GoalTitle />, <RowingTitle />, <RunningTitle />];
+          this.counters = [<TotalHours />, <TotalRowed />, <TotalRan />];
 
           this.state = {
             title : this.titles[0],
@@ -224,7 +265,10 @@
             })
             google.charts.setOnLoadCallback(drawRowingChart);
           } else if (this.tracker === 3) {
-
+            this.setState({
+              title : this.titles[2],
+              counter : this.counters[2]
+            })
             google.charts.setOnLoadCallback(drawRunningChart);
           }
 
