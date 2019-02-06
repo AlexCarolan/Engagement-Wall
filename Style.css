@@ -160,12 +160,14 @@ td, th {
 #route_map {
 	margin: 0px;
 	padding: 0px;
-	height: 80%;
+	height: 70%;
 	z-index: 1;
 }
 
 .map {
-	margin-left: 12px;
+	display: block;
+	margin-left: 3%;
+	margin-right: 5%;
 }
 
 #chart_cont {
@@ -191,6 +193,18 @@ button {
 	height: 183px;
 }
 
+#map_holder{
+	margin: 0px;
+	padding: 0px;
+	height: 100%;
+	z-index: 1;
+}
+
+#mapButton {
+	float:left;
+	display: block;
+	margin-top: 0px;
+}
 
 
 

@@ -27,6 +27,7 @@ class MapHolder extends React.Component {
 	constructor(props) {
         super(props);
     
+    	this.changeMap = this.changeMap.bind(this);
 		this.mapType = 'B';
 		this.state = {
 			currentMap : <RouteMapB />
@@ -36,7 +37,7 @@ class MapHolder extends React.Component {
 	componentDidMount() {
 		this.timerID = setInterval(
 	  		() => this.changeMap(),
-	  		5000
+	  		30000
 		);
 	}
 
@@ -57,10 +58,21 @@ class MapHolder extends React.Component {
 			});
 			this.mapType = 'B';
 		}
+
+		clearInterval(this.timerID);
+		this.timerID = setInterval(
+	  		() => this.changeMap(),
+	  		10000
+		);
 	}
 
 	render() {
-		return(this.state.currentMap);
+		return(
+			<div id="map_holder">
+				{this.state.currentMap}
+				<button type="button" id="mapButton" onClick={this.changeMap}>Next</button>
+			</div>
+			);
 	}
 }
 
