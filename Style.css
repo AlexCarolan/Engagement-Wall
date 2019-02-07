@@ -1,61 +1,49 @@
-html {
-	height: 100%;
+
+* {
+  box-sizing: border-box;
 }
+
 body {
-	height: 100%;
-	margin: 0;
 	background-color: #F5F5F6;
 	font-family: 'Open Sans', sans-serif;
+	height: 100%;
+	margin: 0;
 }
 
-/* Chart Layout */
-.chart{
-	width: 100%; 
-	min-height: 120%;
-	max-width: 96%;
+/* Responsive Grid */
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: block;
 }
 
-#chart_occ {
-	min-height: 80%;
+[class*="col-"] {
+  float: left;
+  padding-top: 15px;
+  padding-left: 15px;
 }
 
-.chart div {
-	margin: 0px;
-	padding: 0px;
+.row_end {
+  padding-right: 15px;
 }
 
-.chart div svg{
-	margin: 0px;
-	padding: 0px;
+div div div {
+  border-radius: 5px;
+  background-color: #c1c5c9;
 }
-
-/* Grid Layout */
-.grid-container { height: 40%; margin-left: 10px;}
-
-.grid-container * { 
- border-radius: 5px;
- position: relative;
- margin: 10px;
- background-color: #c1c5c9;
-}
-
-.grid-container {
-  display: grid;
-  grid-template-columns: 33% 33% 33%;
-  grid-template-rows: 100% 100%;
-  grid-template-areas: "A B C" "D D E";
-}
-
-.A { grid-area: A; }
-
-.B { grid-area: B; }
-
-.C { grid-area: C; }
-
-.D { grid-area: D; }
-
-.E { grid-area: E; }
-
 
 /* Misc */
 #title {
@@ -89,10 +77,18 @@ h2{
 
 h3{
 	text-align: center;
+	padding: 10px;
+	margin: 0px;
+}
+
+h4{
+	text-align: center;
+	padding: 0px;
+	margin: 0px;
 }
 
 #lead_board_run, #lead_board_cycle {
-	font-size: 75%;
+	font-size: 50%;
 	display: inline-block;
 	padding: 0px;
 	margin: 0px;
@@ -102,39 +98,19 @@ h3{
 	padding: 0px;
 	margin: 0px;
 	text-align: center;
-	padding-left: 5px;
-}
-
-.leaderboard {
-	padding: 0px;
-	margin: 0px;
-	padding-left: 14px;
-}
-
-#board_box {
-	padding: 0px;
-	margin: 0px;
 }
 
 #lb_title {
 	margin-bottom: 0px;
 }
 
-#sub_head_A, #sub_head_B {
-	display: inline-block;
-	padding-left: 90px;
-	padding-bottom: 2px;
+.table {
+	width: 49%;
 	margin: 0px;
-}
-
-#sub_head_B {
-	padding-left: 150px;
-}
-
-.sub_box{
 	padding: 0px;
-	margin: 0px;
+	display: inline-block;
 }
+
 
 td, th {
 	padding-left: 5px;
@@ -142,12 +118,12 @@ td, th {
 	outline: 2px solid black;
 }
 
-.B td {
+td {
 	background-color: #eff0f2;
 	border-radius: 0px;
 }
 
-.B th {
+th {
 	background-color: #55595e;
 	border-radius: 0px;
 	color: white;
@@ -157,53 +133,29 @@ td, th {
 	margin-bottom: 0px;
 }
 
-#route_map {
-	margin: 0px;
-	padding: 0px;
-	height: 70%;
-	z-index: 1;
+.tables {
+	width: 100%;
 }
 
-.map {
-	display: block;
-	margin-left: 3%;
-	margin-right: 5%;
+.map, .chart {
+	width: 95%;
+	margin-left: 2.5%;
+	margin-right: 2.5%;
+
 }
 
-#chart_cont {
-	height: 95%;
-}
-
-.total_tracker {
-	padding-bottom: 0px;
-	margin: 0px;
-}
 
 button {
-	background-color: #007bff !important;
+	background-color: #007bff;
 	color: white;
 	border-color: #007bff;
 	width: 40%;
-	margin-left: 30% !important;
-	margin-right: 30% !important;
+	margin-left: 30%;
+	margin-right: 30%;
     padding: 5px;
-}
-
-#chart_goal {
-	height: 183px;
-}
-
-#map_holder{
-	margin: 0px;
-	padding: 0px;
-	height: 100%;
-	z-index: 1;
-}
-
-#mapButton {
-	float:left;
-	display: block;
-	margin-top: 0px;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 

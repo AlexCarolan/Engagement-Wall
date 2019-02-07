@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Exercise Monitor</title>
 		<link rel="icon" type="image/x-icon" href="favicon.ico" />
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
@@ -16,35 +17,49 @@
 
 		<!-- App Content -->
 		<div class="grid-container">
-		  <div class="A">
+		  <div class="col-4">
 		  	<div id="chart_cont"></div>
 		  </div>
 
-		  <div class="B">
-		  	<h3 id="lb_title">Monthly Leaderboards (Outdoor Events)</h3>
-		  	<div class="sub_box">
-			  	<h4 id="sub_head_A">Running</h4>
-			  	<h4 id="sub_head_B">Cycling</h4>
-			</div>
-			<div id="board_box">
-			  	<div id="lead_board_run"></div>
-			  	<div id="lead_board_cycle"></div>
+		  <div class="col-4">
+		  	<div>
+			  	<h3 id="lb_title">Monthly Leaderboards (Outdoor Events)</h3>
+			  	<div class="tables">
+				  	<div class="table">
+					  	<h4 id="sub_head_A">Running</h4>
+					  	<div id="lead_board_run"></div>
+					</div>
+					<div class="table">
+						<h4 id="sub_head_B">Cycling</h4>
+					  	<div id="lead_board_cycle"></div>
+				  	</div>
+			  </div>
 		  	</div>
 		  </div>
 
-		  <div class="C">
-		  	<h3 id="route_title">Suggested Routes</h3>
-		  	<div id="route_map"></div>
+		  <div class="col-4 row_end">
+		  	<div>
+			  	<h3 id="route_title">Suggested Routes</h3>
+			  	<div id="route_map"></div>
+			</div>
 		  </div>
 
 
-		  <div class="D">null</div>
+		  <div class="col-8">
+		  	<div>
+			  	<h3>Live Races</h3>
+			  	<div id="race_holder"></div>
+		  	</div>
+		  </div>
 
 		  
-		  <div class="E">
-		  	<h3>Current Gym Occupants</h3>
-		  	<div id="chart_occ" class="chart"></div>
+		  <div class="col-4 row_end">
+		  	<div>
+		  		<h3>Current Gym Occupants</h3>
+			  	<div id="chart_occ" class="chart"></div>
+		  	</div>
 		  </div>
+
 		</div>
 
 
@@ -58,6 +73,7 @@
 		<script src="OccupancyChart.js"></script>
 		<script src="RunningBoard.js"></script>
 		<script src="RouteMaps.js"></script>
+		<script src="LiveRace.js"></script>
 		
 	</body> 
 </html>
