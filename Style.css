@@ -52,6 +52,11 @@ h4{
   float: left;
   padding-top: 15px;
   padding-left: 15px;
+  height: 40vh;
+}
+
+.grid-container {
+
 }
 
 .row_end {
@@ -117,9 +122,11 @@ table {
 
 
 td, th {
+	font-size: 0.70vw;
 	padding-left: 5px;
 	padding-right: 5px;
 	outline: 2px solid black;
+	white-space: nowrap;
 }
 
 td {
@@ -143,14 +150,26 @@ th {
 }
 
 .tables {
-	width: 100%;
+	width: 96.5%;
+	margin-left: 2.5%;
+	margin-right: 1%;
+
 }
 
-.map, .chart {
+
+.map, .chart{
 	width: 95%;
 	margin-left: 2.5%;
 	margin-right: 2.5%;
+}
 
+.map {
+	
+}
+
+#chart_occ {
+	padding-bottom: 15px;
+	height: 100%;
 }
 
 
