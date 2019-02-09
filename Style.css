@@ -53,10 +53,11 @@ h4{
   padding-top: 15px;
   padding-left: 15px;
   height: 40vh;
+
 }
 
-.grid-container {
-
+.grid-container div{
+	min-height: 100%;
 }
 
 .row_end {
@@ -90,6 +91,7 @@ div div div {
 #date {
 	padding-left: 30px;
 }
+
 
 .total_tracker {
 	padding-bottom: 0px;
