@@ -62,7 +62,7 @@ class MapHolder extends React.Component {
 		clearInterval(this.timerID);
 		this.timerID = setInterval(
 	  		() => this.changeMap(),
-	  		10000
+	  		30000
 		);
 	}
 
