@@ -1,7 +1,11 @@
 class Race extends React.Component { 
 
 	render() {
-		return(<p> A new race will begin soon!</p>);
+		return(
+				<div className="textContainer">
+					<p id="raceText"> A new race will begin soon...</p>
+				</div>
+			);
 	}
 
 }

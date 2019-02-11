@@ -198,6 +198,28 @@ button {
     margin-bottom: 10px;
 }
 
+/* Live Races */
+#race_holder{
+}
+
+.textContainer{
+	background-color: #ededed;
+	height: 30vh;
+	margin-left: 20px;
+	margin-right: 20px;
+
+}
+
+#raceText {
+	font-size: 250%;
+	text-align: center;
+	padding: 0px;
+	margin: 0px;
+	padding: 100px 0px;
+}
+
+
+
 
 
 
