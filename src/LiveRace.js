@@ -1,7 +1,14 @@
 class RowingRace extends React.Component {
 	render() {
+
+		A = "Joe";
+		B = "Kate";
+
 		return(
 			<div id="raceBackgroundWater" className="raceContainer">
+				<p className="liveRaceText">
+					<span className="racerA">{`${A}`}</span> vs <span className="racerB">{`${B}`}</span>
+				</p>
 			</div>
 
 		);

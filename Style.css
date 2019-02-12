@@ -221,6 +221,39 @@ button {
 	border: 4px solid #636363;
 }
 
+.liveRaceText {
+	color: #FFFFFF;
+	font-size: 150%;
+	text-align: center;
+
+	text-shadow:
+	-1px -1px 0 #000,
+	1px -1px 0 #000,
+	-1px 1px 0 #000,
+	1px 1px 0 #000;
+}
+
+.racerA{
+	color: #007bff;
+
+	text-shadow:
+	-1px -1px 0 #000,
+	1px -1px 0 #000,
+	-1px 1px 0 #000,
+	1px 1px 0 #000;
+}
+
+.racerB{
+
+	color: red;
+
+	text-shadow:
+	-1px -1px 0 #000,
+	1px -1px 0 #000,
+	-1px 1px 0 #000,
+	1px 1px 0 #000;
+}
+
 
 
 
