@@ -199,10 +199,8 @@ button {
 }
 
 /* Live Races */
-#race_holder{
-}
 
-.textContainer{
+.raceContainer{
 	background-color: #ededed;
 	height: 30vh;
 	margin-left: 20px;
@@ -217,6 +215,12 @@ button {
 	margin: 0px;
 	padding: 100px 0px;
 }
+
+#raceBackgroundWater{
+	background-image: url("media/water.png");
+}
+
+
 
 
 

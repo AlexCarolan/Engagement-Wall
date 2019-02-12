@@ -1,3 +1,14 @@
+class RowingRace extends React.Component {
+	render() {
+		return(
+			<div id="raceBackgroundWater" className="raceContainer">
+			</div>
+
+		);
+	}
+
+}
+
 class RaceHolder extends React.Component {
 
 	render() {
@@ -39,7 +50,7 @@ class Race extends React.Component {
 
 	render() {
 		return(
-				<div className="textContainer">
+				<div className="raceContainer">
 					<p id="raceText">{`A new race will begin soon${this.state.end}`}</p>
 				</div>
 			);
@@ -47,4 +58,4 @@ class Race extends React.Component {
 
 }
 
-ReactDOM.render(<RaceHolder />, document.querySelector('#race_holder'));
+ReactDOM.render(<RowingRace />, document.querySelector('#race_holder'));
