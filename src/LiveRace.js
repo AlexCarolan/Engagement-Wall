@@ -1,3 +1,12 @@
+class RaceHolder extends React.Component {
+
+	render() {
+		return(<Race />);
+	}
+
+}
+
+
 class Race extends React.Component { 
 
 	constructor(props) {
@@ -38,4 +47,4 @@ class Race extends React.Component {
 
 }
 
-ReactDOM.render(<Race />, document.querySelector('#race_holder'));
+ReactDOM.render(<RaceHolder />, document.querySelector('#race_holder'));
