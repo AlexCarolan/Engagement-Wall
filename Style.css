@@ -231,9 +231,12 @@ button {
 	1px -1px 0 #000,
 	-1px 1px 0 #000,
 	1px 1px 0 #000;
+
+	margin: 0px;
+	padding: 0px;
 }
 
-.racerA{
+.racerA {
 	color: #007bff;
 
 	text-shadow:
@@ -243,7 +246,7 @@ button {
 	1px 1px 0 #000;
 }
 
-.racerB{
+.racerB {
 
 	color: red;
 
@@ -252,6 +255,13 @@ button {
 	1px -1px 0 #000,
 	-1px 1px 0 #000,
 	1px 1px 0 #000;
+}
+
+.boatImage {
+	min-height: 0;
+	margin-left: 0%;
+	margin-right: 100%;
+
 }
 
 
