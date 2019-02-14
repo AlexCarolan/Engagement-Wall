@@ -1,15 +1,51 @@
 class RowingRace extends React.Component {
-	render() {
 
-		A = "Joe";
-		B = "Kate";
+	constructor(props) {
+      super(props);
+	  	
+	  	this.progressA = 0;
+	  	this.nameA = "Joe";
+		this.nameB = "Kate";
+	      
+	}
+	
+	componentDidMount() {
+		this.timerID = setInterval(
+	  		() => this.tick(),
+	  		250
+		);
+	}
+
+	componentWillUnmount() {
+		clearInterval(this.timerID);
+	}
+
+	//move up to 85% left max
+	tick() {
+
+		this.progressA = this.progressA + 1;
+		let racerImgA = document.getElementById("racerBoatA");
+		racerImgA.style.left = (this.progressA)+"%";
+
+		if (this.progressA >= 85) {
+			this.declareWinner(this.nameA);
+		}
+
+
+	}
+
+	declareWinner(winnerName) {
+		clearInterval(this.timerID);
+	}
+
+	render() {
 
 		return(
 			<div id="raceBackgroundWater" className="raceContainer">
-				<img src="media/cropped_boat.png" alt="race boat" height="50" width="100" className="boatImage"></img>
-				<img src="media/cropped_boat.png" alt="race boat" height="50" width="100" className="boatImage"></img>
+				<img src="media/cropped_boat.png" alt="race boat" height="50" width="100" className="boatImage" id="racerBoatA"></img>
+				<img src="media/cropped_boat.png" alt="race boat" height="50" width="100" className="boatImage" id="racerBoatB"></img>
 				<p className="liveRaceText">
-					<span className="racerA">{`${A}`}</span> vs <span className="racerB">{`${B}`}</span>
+					<span className="racerA">{`${this.nameA}`}</span> vs <span className="racerB">{`${this.nameB}`}</span>
 				</p>
 			</div>
 
