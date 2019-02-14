@@ -6,8 +6,8 @@ class RowingRace extends React.Component {
 
 		return(
 			<div id="raceBackgroundWater" className="raceContainer">
-				<img src="media/empty_boat.png" alt="race boat" height="100" width="100" className="boatImage"></img>
-				<img src="media/empty_boat.png" alt="race boat" height="100" width="100" className="boatImage"></img>
+				<img src="media/cropped_boat.png" alt="race boat" height="50" width="100" className="boatImage"></img>
+				<img src="media/cropped_boat.png" alt="race boat" height="50" width="100" className="boatImage"></img>
 				<p className="liveRaceText">
 					<span className="racerA">{`${A}`}</span> vs <span className="racerB">{`${B}`}</span>
 				</p>
