@@ -25,19 +25,22 @@ class RowingRace extends React.Component {
 	//move up to 85% left max
 	tick() {
 
-		this.progressA = this.progressA + 0.1;
+		//Randomly generate progress for each playert
+		this.progressA = (this.progressA + (Math.random() * (0.05 - 0.3) + 0.3));
+		this.progressB = (this.progressB + (Math.random() * (0.05 - 0.3) + 0.3));
+
+		//Set racer img to new new progress value
 		let racerImgA = document.getElementById("racerBoatA");
 		racerImgA.style.left = (this.progressA)+"%";
 
-		this.progressB = this.progressB + 0.2;
 		let racerImgB = document.getElementById("racerBoatB");
 		racerImgB.style.left = (this.progressB)+"%";
 
+		//Check for a winner
 		if (this.progressA >= 85) {
 			this.declareWinner(this.nameA);
-		}
 
-		if (this.progressB >= 85) {
+		} else if (this.progressB >= 85) {
 			this.declareWinner(this.nameB);
 		}
 
