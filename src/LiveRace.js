@@ -4,6 +4,8 @@ class RowingRace extends React.Component {
       super(props);
 	  	
 	  	this.progressA = 0;
+	  	this.progressB = 0;
+
 	  	this.nameA = "Joe";
 		this.nameB = "Kate";
 	      
@@ -27,8 +29,16 @@ class RowingRace extends React.Component {
 		let racerImgA = document.getElementById("racerBoatA");
 		racerImgA.style.left = (this.progressA)+"%";
 
+		this.progressB = this.progressB + 0.2;
+		let racerImgB = document.getElementById("racerBoatB");
+		racerImgB.style.left = (this.progressB)+"%";
+
 		if (this.progressA >= 85) {
 			this.declareWinner(this.nameA);
+		}
+
+		if (this.progressB >= 85) {
+			this.declareWinner(this.nameB);
 		}
 
 
