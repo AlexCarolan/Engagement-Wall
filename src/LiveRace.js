@@ -12,7 +12,7 @@ class RowingRace extends React.Component {
 	componentDidMount() {
 		this.timerID = setInterval(
 	  		() => this.tick(),
-	  		250
+	  		50
 		);
 	}
 
@@ -23,7 +23,7 @@ class RowingRace extends React.Component {
 	//move up to 85% left max
 	tick() {
 
-		this.progressA = this.progressA + 1;
+		this.progressA = this.progressA + 0.1;
 		let racerImgA = document.getElementById("racerBoatA");
 		racerImgA.style.left = (this.progressA)+"%";
 
