@@ -2,12 +2,31 @@ class RowingRace extends React.Component {
 
 	constructor(props) {
       super(props);
+
+      	this.namesA = [
+      	"Oliver",
+      	"Jack",
+      	"Harry",
+      	"Olivia",
+      	"Jessica",
+      	"Lily"
+      	];
+
+      	this.namesB = [
+      	"George",
+      	"Oscar",
+      	"Ethan",
+      	"Emily",
+      	"Elizabeth",
+      	"Charlotte"
+      	];
 	  	
 	  	this.progressA = 0;
 	  	this.progressB = 0;
 
-	  	this.nameA = "Joe";
-		this.nameB = "Kate";
+	  	//Assign random names
+	  	this.nameA = this.namesA[Math.floor((Math.random() * 6))];
+		this.nameB = this.namesB[Math.floor((Math.random() * 6))];
 	      
 	}
 	
