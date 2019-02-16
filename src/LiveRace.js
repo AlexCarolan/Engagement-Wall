@@ -1,15 +1,64 @@
 class RowingRace extends React.Component {
-	render() {
 
-		A = "Joe";
-		B = "Kate";
+	constructor(props) {
+      super(props);
+	  	
+	  	this.progressA = 0;
+	  	this.progressB = 0;
+
+	  	this.nameA = "Joe";
+		this.nameB = "Kate";
+	      
+	}
+	
+	componentDidMount() {
+		this.timerID = setInterval(
+	  		() => this.tick(),
+	  		50
+		);
+	}
+
+	componentWillUnmount() {
+		clearInterval(this.timerID);
+	}
+
+	//move up to 85% left max
+	tick() {
+
+		//Randomly generate progress for each playert
+		this.progressA = (this.progressA + (Math.random() * (0.05 - 0.3) + 0.3));
+		this.progressB = (this.progressB + (Math.random() * (0.05 - 0.3) + 0.3));
+
+		//Set racer img to new new progress value
+		let racerImgA = document.getElementById("racerBoatA");
+		racerImgA.style.left = (this.progressA)+"%";
+
+		let racerImgB = document.getElementById("racerBoatB");
+		racerImgB.style.left = (this.progressB)+"%";
+
+		//Check for a winner
+		if (this.progressA >= 85) {
+			this.declareWinner(this.nameA);
+
+		} else if (this.progressB >= 85) {
+			this.declareWinner(this.nameB);
+		}
+
+
+	}
+
+	declareWinner(winnerName) {
+		clearInterval(this.timerID);
+	}
+
+	render() {
 
 		return(
 			<div id="raceBackgroundWater" className="raceContainer">
-				<img src="media/empty_boat.png" alt="race boat" height="100" width="100" className="boatImage"></img>
-				<img src="media/empty_boat.png" alt="race boat" height="100" width="100" className="boatImage"></img>
+				<img src="media/cropped_boat.png" alt="race boat" height="50" width="100" className="boatImage" id="racerBoatA"></img>
+				<img src="media/cropped_boat.png" alt="race boat" height="50" width="100" className="boatImage" id="racerBoatB"></img>
 				<p className="liveRaceText">
-					<span className="racerA">{`${A}`}</span> vs <span className="racerB">{`${B}`}</span>
+					<span className="racerA">{`${this.nameA}`}</span> vs <span className="racerB">{`${this.nameB}`}</span>
 				</p>
 			</div>
 
