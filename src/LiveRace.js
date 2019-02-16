@@ -3,6 +3,8 @@ class RaceHolder extends React.Component {
 	constructor(props) {
 		super(props);
 
+		this.raceHasEnded = this.raceHasEnded.bind(this);
+
 		this.waiting = true;
 
 		this.state = {
@@ -25,15 +27,27 @@ class RaceHolder extends React.Component {
 	tick() {
 
 		let chance = Math.floor((Math.random() * 100) + 1);
-		console.log(chance);
 
 		if (chance >= 90) {
 			clearInterval(this.timerID);
 			this.setState({
-				content: <RowingRace></ RowingRace>
+				content: <RowingRace endMethod={this.raceHasEnded}></ RowingRace>
 			});
 		}
 
+	}
+
+	raceHasEnded() {
+		console.log('Thats the end');
+
+		this.setState({
+			content: <RaceWaiting></ RaceWaiting>
+		});
+
+		this.timerID = setInterval(
+	  		() => this.tick(),
+	  		5000
+		);
 	}
 
     render() {
@@ -73,6 +87,8 @@ class RowingRace extends React.Component {
 	  	
 	  	this.progressA = 0;
 	  	this.progressB = 0;
+
+	  	this.endRace = props.endMethod;
 
 	  	//Assign random names
 	  	this.nameA = this.namesA[Math.floor((Math.random() * 6))];
@@ -132,6 +148,18 @@ class RowingRace extends React.Component {
 				bottomText: <span><span className="racerB">{`${this.nameB}`}</span> is the winner!</span>
 			});
 		}
+
+
+		this.timerID = setInterval(
+	  		() => this.restart(),
+	  		5000
+		);
+
+	}
+
+	restart() {
+		clearInterval(this.timerID);
+		this.endRace();
 	}
 
 	render() {
