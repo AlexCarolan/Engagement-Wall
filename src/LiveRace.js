@@ -1,3 +1,53 @@
+class RaceHolder extends React.Component {
+
+	constructor(props) {
+		super(props);
+
+		this.waiting = true;
+
+		this.state = {
+			content: <RaceWaiting></ RaceWaiting>
+		}
+    }
+
+    componentDidMount() {
+		this.timerID = setInterval(
+	  		() => this.tick(),
+	  		5000
+		);
+	}
+
+	componentWillUnmount() {
+		clearInterval(this.timerID);
+	}
+
+	//Every few seconds have a chance to start a new race 
+	tick() {
+
+		let chance = Math.floor((Math.random() * 100) + 1);
+		console.log(chance);
+
+		if (chance >= 90) {
+			clearInterval(this.timerID);
+			this.setState({
+				content: <RowingRace></ RowingRace>
+			});
+		}
+
+	}
+
+    render() {
+
+		return(
+			<div>
+				{this.state.content}
+			</div>
+		);
+	}
+
+
+}
+
 class RowingRace extends React.Component {
 
 	constructor(props) {
@@ -100,16 +150,8 @@ class RowingRace extends React.Component {
 
 }
 
-class RaceHolder extends React.Component {
 
-	render() {
-		return(<Race />);
-	}
-
-}
-
-
-class Race extends React.Component { 
+class RaceWaiting extends React.Component { 
 
 	constructor(props) {
       super(props);
@@ -123,7 +165,7 @@ class Race extends React.Component {
 	componentDidMount() {
 		this.timerID = setInterval(
 	  		() => this.tick(),
-	  		1000
+	  		750
 		);
 	}
 
@@ -149,4 +191,4 @@ class Race extends React.Component {
 
 }
 
-ReactDOM.render(<RowingRace />, document.querySelector('#race_holder'));
+ReactDOM.render(<RaceHolder />, document.querySelector('#race_holder'));
