@@ -55,8 +55,8 @@ class RowingRace extends React.Component {
 
 		return(
 			<div id="raceBackgroundWater" className="raceContainer">
-				<img src="media/cropped_boat.png" alt="race boat" height="50" width="100" className="boatImage" id="racerBoatA"></img>
-				<img src="media/cropped_boat.png" alt="race boat" height="50" width="100" className="boatImage" id="racerBoatB"></img>
+				<img src="media/blue_boat.png" alt="race boat" height="75" width="100" className="boatImage" id="racerBoatA"></img>
+				<img src="media/red_boat.png" alt="race boat" height="75" width="100" className="boatImage" id="racerBoatB"></img>
 				<p className="liveRaceText">
 					<span className="racerA">{`${this.nameA}`}</span> vs <span className="racerB">{`${this.nameB}`}</span>
 				</p>
