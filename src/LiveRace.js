@@ -27,6 +27,10 @@ class RowingRace extends React.Component {
 	  	//Assign random names
 	  	this.nameA = this.namesA[Math.floor((Math.random() * 6))];
 		this.nameB = this.namesB[Math.floor((Math.random() * 6))];
+
+		this.state = {
+			bottomText: <span><span className="racerA">{`${this.nameA}`}</span> vs <span className="racerB">{`${this.nameB}`}</span></span>
+		}
 	      
 	}
 	
@@ -57,17 +61,27 @@ class RowingRace extends React.Component {
 
 		//Check for a winner
 		if (this.progressA >= 85) {
-			this.declareWinner(this.nameA);
+			this.declareWinner(this.nameA, 'A');
 
 		} else if (this.progressB >= 85) {
-			this.declareWinner(this.nameB);
+			this.declareWinner(this.nameB,'B');
 		}
 
 
 	}
 
-	declareWinner(winnerName) {
+	declareWinner(winnerName, pos) {
 		clearInterval(this.timerID);
+
+		if(pos === 'A') {
+			this.setState({
+				bottomText: <span><span className="racerA">{`${this.nameA}`}</span> is the winner!</span>
+			});
+		} else if(pos === 'B') {
+			this.setState({
+				bottomText: <span><span className="racerB">{`${this.nameB}`}</span> is the winner!</span>
+			});
+		}
 	}
 
 	render() {
@@ -77,7 +91,7 @@ class RowingRace extends React.Component {
 				<img src="media/blue_boat.png" alt="race boat" height="75" width="100" className="boatImage" id="racerBoatA"></img>
 				<img src="media/red_boat.png" alt="race boat" height="75" width="100" className="boatImage" id="racerBoatB"></img>
 				<p className="liveRaceText">
-					<span className="racerA">{`${this.nameA}`}</span> vs <span className="racerB">{`${this.nameB}`}</span>
+					{this.state.bottomText}
 				</p>
 			</div>
 
