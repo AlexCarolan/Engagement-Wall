@@ -25,7 +25,15 @@
           ['Incomplete',     remainder],
         ]);
 
+        let fSize = 13;
+        if (window.matchMedia("(min-width: 1900px)").matches) {
+          fSize = 18;
+        } else {
+          fSize = 13;
+        }
+
         var options = {
+          fontSize: fSize,
           legend:'none',
           pieHole: 0.4,
           colors: ['#D33B42', '#7d7d7d'],
@@ -52,7 +60,15 @@
           ['Incomplete',     remainder],
         ]);
 
+        let fSize = 13;
+        if (window.matchMedia("(min-width: 1900px)").matches) {
+          fSize = 18;
+        } else {
+          fSize = 13;
+        }
+
         var options = {
+          fontSize: fSize,
           legend:'none',
           pieHole: 0.4,
           colors: ['#266DD3', '#7d7d7d'],
@@ -79,7 +95,15 @@
           ['Incomplete',     remainder],
         ]);
 
+        let fSize = 13;
+        if (window.matchMedia("(min-width: 1900px)").matches) {
+          fSize = 18;
+        } else {
+          fSize = 13;
+        }
+
         var options = {
+          fontSize: fSize,
           legend:'none',
           pieHole: 0.4,
           colors: ['#00B40C', '#7d7d7d'],
