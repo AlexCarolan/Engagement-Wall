@@ -268,7 +268,22 @@ button {
 
 
 /* Media queries for 1920 x 1080 */
+@media only screen and (min-width: 1900px) {
 
+[class*="col-"] {
+	height: 42vh;
+}
+
+#title {
+	font-size: 40px;
+}
+
+h2 {
+	font-size: 30px;
+}
+
+
+}
 
 
 
