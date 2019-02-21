@@ -38,7 +38,6 @@ class RaceHolder extends React.Component {
 	}
 
 	raceHasEnded() {
-		console.log('Thats the end');
 
 		this.setState({
 			content: <RaceWaiting></ RaceWaiting>
