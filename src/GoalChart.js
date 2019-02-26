@@ -26,7 +26,7 @@
         ]);
 
         let fSize = 13;
-        if (window.matchMedia("(min-width: 1900px)").matches) {
+        if (window.matchMedia("(min-height: 1070px)").matches) {
           fSize = 18;
         } else {
           fSize = 13;
@@ -61,7 +61,7 @@
         ]);
 
         let fSize = 13;
-        if (window.matchMedia("(min-width: 1900px)").matches) {
+        if (window.matchMedia("(min-height: 1070px)").matches) {
           fSize = 18;
         } else {
           fSize = 13;
@@ -96,7 +96,7 @@
         ]);
 
         let fSize = 13;
-        if (window.matchMedia("(min-width: 1900px)").matches) {
+        if (window.matchMedia("(min-height: 1070px)").matches) {
           fSize = 18;
         } else {
           fSize = 13;
@@ -315,8 +315,6 @@
           );
         }
       }
-
-
 
 
 

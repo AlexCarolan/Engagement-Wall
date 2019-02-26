@@ -31,7 +31,7 @@ function drawChart() {
   var data = google.visualization.arrayToDataTable([['Status', 'Hours'], ['Complete', progress], ['Incomplete', remainder]]);
 
   var fSize = 13;
-  if (window.matchMedia("(min-width: 1900px)").matches) {
+  if (window.matchMedia("(min-height: 1070px)").matches) {
     fSize = 18;
   } else {
     fSize = 13;
@@ -64,7 +64,7 @@ function drawRowingChart() {
   var data = google.visualization.arrayToDataTable([['Status', 'Distance'], ['Complete', progress + 2500], ['Incomplete', remainder]]);
 
   var fSize = 13;
-  if (window.matchMedia("(min-width: 1900px)").matches) {
+  if (window.matchMedia("(min-height: 1070px)").matches) {
     fSize = 18;
   } else {
     fSize = 13;
@@ -97,7 +97,7 @@ function drawRunningChart() {
   var data = google.visualization.arrayToDataTable([['Status', 'Distance'], ['Complete', progress + 15000], ['Incomplete', remainder]]);
 
   var fSize = 13;
-  if (window.matchMedia("(min-width: 1900px)").matches) {
+  if (window.matchMedia("(min-height: 1070px)").matches) {
     fSize = 18;
   } else {
     fSize = 13;
