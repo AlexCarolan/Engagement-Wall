@@ -346,6 +346,8 @@ var ChartHolder = function (_React$Component7) {
     _this10.tracker = 1;
     _this10.titles = [React.createElement(GoalTitle, null), React.createElement(RowingTitle, null), React.createElement(RunningTitle, null)];
     _this10.counters = [React.createElement(TotalHours, null), React.createElement(TotalRowed, null), React.createElement(TotalRan, null)];
+    _this10.limits = [goalLimit, rowingLimit, runningLimit];
+    _this10.additions = [0, 2500, 15000];
 
     _this10.state = {
       title: _this10.titles[0],
@@ -415,18 +417,38 @@ var ChartHolder = function (_React$Component7) {
   }, {
     key: 'render',
     value: function render() {
-      return React.createElement(
-        'div',
-        { id: 'inner_cont' },
-        this.state.title,
-        React.createElement('div', { id: 'chart_goal', className: 'chart' }),
-        this.state.counter,
-        React.createElement(
-          'button',
-          { type: 'button', onClick: this.tick },
-          'Next Goal'
-        )
-      );
+
+      //<img class="comp_goal" src="media/goal_complete.png" alt="Running icon" height="244.5" width="272">
+
+      if (progress + this.additions[this.tracker - 1] >= this.limits[this.tracker - 1]) {
+
+        return React.createElement(
+          'div',
+          { id: 'inner_cont' },
+          this.state.title,
+          React.createElement('img', { className: 'comp_goal', src: 'media/goal_complete.png', alt: 'Running icon', height: '293.4', width: '326.4' }),
+          this.state.counter,
+          React.createElement(
+            'button',
+            { type: 'button', onClick: this.tick },
+            'Next Goal'
+          )
+        );
+      } else {
+
+        return React.createElement(
+          'div',
+          { id: 'inner_cont' },
+          this.state.title,
+          React.createElement('div', { id: 'chart_goal', className: 'chart' }),
+          this.state.counter,
+          React.createElement(
+            'button',
+            { type: 'button', onClick: this.tick },
+            'Next Goal'
+          )
+        );
+      }
     }
   }]);
 

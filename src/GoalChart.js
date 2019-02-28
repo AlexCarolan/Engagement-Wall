@@ -247,6 +247,8 @@
           this.tracker = 1;
           this.titles = [<GoalTitle />, <RowingTitle />, <RunningTitle />];
           this.counters = [<TotalHours />, <TotalRowed />, <TotalRan />];
+          this.limits = [goalLimit, rowingLimit, runningLimit];
+          this.additions = [0, 2500, 15000];
 
           this.state = {
             title : this.titles[0],
@@ -305,14 +307,32 @@
         }
 
         render() {
-          return(
-            <div id="inner_cont">
-              {this.state.title}
-              <div id="chart_goal" className="chart"></div>
-              {this.state.counter}
-              <button type="button" onClick={this.tick}>Next Goal</button>
-            </div>
-          );
+
+          //<img class="comp_goal" src="media/goal_complete.png" alt="Running icon" height="244.5" width="272">
+
+          if ((progress + this.additions[this.tracker-1]) >= this.limits[this.tracker-1]) {
+
+            return(
+              <div id="inner_cont">
+                {this.state.title}
+                <img className="comp_goal" src="media/goal_complete.png" alt="Running icon" height="293.4" width="326.4"></img>
+                {this.state.counter}
+                <button type="button" onClick={this.tick}>Next Goal</button>
+              </div>
+            );
+
+          } else {
+
+            return(
+              <div id="inner_cont">
+                {this.state.title}
+                <div id="chart_goal" className="chart"></div>
+                {this.state.counter}
+                <button type="button" onClick={this.tick}>Next Goal</button>
+              </div>
+            );
+
+          }
         }
       }
 
