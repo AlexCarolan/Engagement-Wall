@@ -139,7 +139,7 @@ td, th {
 	padding-right: 5px;
 	outline: 2px solid black;
 	white-space: nowrap;
-	height: 19.5px;
+	height: 18px;
 	font-size: 10px;
 	overflow: hidden;
  	text-overflow:ellipsis;
@@ -190,6 +190,14 @@ th {
 
 .map {
 	height: 27.5vh;
+}
+
+.board_icon {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 2px;
+	padding-bottom: 2px;
 }
 
 #chart_occ {
@@ -293,7 +301,7 @@ button {
 }
 
 th, td{
-	height: 23px;
+	height: 21px;
 	font-size: 13px;
 	overflow: hidden;
  	text-overflow:ellipsis;
@@ -359,7 +367,7 @@ button {
 }
 
 th, td{
-	height: 29px;
+	height: 27px;
 	font-size: 16px;
 	overflow: hidden;
  	text-overflow:ellipsis;
