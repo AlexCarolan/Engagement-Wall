@@ -113,7 +113,7 @@ var MapHolder = function (_React$Component3) {
 				React.createElement(
 					"button",
 					{ type: "button", id: "mapButton", onClick: this.changeMap },
-					"Next"
+					"Next Map"
 				)
 			);
 		}

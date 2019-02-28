@@ -424,7 +424,7 @@ var ChartHolder = function (_React$Component7) {
         React.createElement(
           'button',
           { type: 'button', onClick: this.tick },
-          'Next'
+          'Next Goal'
         )
       );
     }

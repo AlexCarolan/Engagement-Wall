@@ -70,7 +70,7 @@ class MapHolder extends React.Component {
 		return(
 			<div id="map_holder">
 				{this.state.currentMap}
-				<button type="button" id="mapButton" onClick={this.changeMap}>Next</button>
+				<button type="button" id="mapButton" onClick={this.changeMap}>Next Map</button>
 			</div>
 			);
 	}

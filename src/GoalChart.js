@@ -310,7 +310,7 @@
               {this.state.title}
               <div id="chart_goal" className="chart"></div>
               {this.state.counter}
-              <button type="button" onClick={this.tick}>Next</button>
+              <button type="button" onClick={this.tick}>Next Goal</button>
             </div>
           );
         }
