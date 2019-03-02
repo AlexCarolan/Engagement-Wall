@@ -418,8 +418,6 @@ var ChartHolder = function (_React$Component7) {
     key: 'render',
     value: function render() {
 
-      //<img class="comp_goal" src="media/goal_complete.png" alt="Running icon" height="244.5" width="272">
-
       if (progress + this.additions[this.tracker - 1] >= this.limits[this.tracker - 1]) {
 
         return React.createElement(
