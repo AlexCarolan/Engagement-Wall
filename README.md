@@ -1,2 +1,3 @@
 # Engagement-Wall
-Engagement Wall for TYP
+
+This is a prototype application developed to explore how exercise can be encouraged within a comunity using an engagement wall.
