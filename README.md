@@ -2,4 +2,4 @@
 
 This is a prototype application developed to explore how exercise can be encouraged within a comunity using an engagement wall.
 
-![Screenshot](Repo Images/Screenshot.png?raw=true "Optional Title")
+![Screenshot](repo-images/Screenshot.png?raw=true "Optional Title")
